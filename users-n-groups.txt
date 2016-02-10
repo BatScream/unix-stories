@@ -1,0 +1,5 @@
+a) Doing a ls -ltr on the root directory yielded me the below result. I had not seen anything like "wheel" in the groups section.
+
+drwxr-xr-x   3 root  wheel   102 Feb  8 21:37 data
+
+After googling a bit i came to know that it is a group, whose members can use the "su" utility in order to change to "root". Again, if the file's owner is "root", why is the user group "wheel"? By default, "root" is a member of the "wheel" group. Removing the root user from the wheel would not change things. This is purely formal.
