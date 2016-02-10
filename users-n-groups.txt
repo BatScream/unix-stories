@@ -3,3 +3,15 @@ a) Doing a ls -ltr on the root directory yielded me the below result. I had not 
 drwxr-xr-x   3 root  wheel   102 Feb  8 21:37 data
 
 After googling a bit i came to know that it is a group, whose members can use the "su" utility in order to change to "root". Again, if the file's owner is "root", why is the user group "wheel"? By default, "root" is a member of the "wheel" group. Removing the root user from the wheel would not change things. This is purely formal.
+
+b) Mongodb was Unable the "data" directory. 
+
+Saw that the directory was owned by "root", and since i was in the "wheel" group, i was able to start mongod instance using the "sudo mongod" command. But it would run as the "root" user. So i had to change the ownership of the "data" directory from "root" to me.
+
+The command, fixed it:
+
+chown -R batscream data 
+
+Then i gave read and nexecute access to myself:
+
+chmod -R u+rX data 
